@@ -28,13 +28,18 @@ class App extends React.Component {
   }
 
   render() {
-
     if (this.state.count <= 0){
       this.state.count = 0
     }
+    if (this.state.count >= 100){
+      this.state.count = 100
+    }
+
     return (
       <div className="container-fluid">
-        <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} />
+        <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} counterNum='1'/>
+
+        <Counter counterNum={2} increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} />
       </div>
     )
   }
