@@ -27,6 +27,12 @@ class App extends React.Component {
     })
   }
 
+  resetValue = () => {
+    this.setState({
+      count : 0
+    })
+  }
+
   render() {
     if (this.state.count <= 0){
       this.state.count = 0
@@ -37,9 +43,9 @@ class App extends React.Component {
 
     return (
       <div className="container-fluid">
-        <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} counterNum='1'/>
+        <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} counterNum='1' reset={this.resetValue} />
 
-        <Counter counterNum={2} increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} />
+        <Counter counterNum={2} increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} reset={this.resetValue}/>
       </div>
     )
   }
