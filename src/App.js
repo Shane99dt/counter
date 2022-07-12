@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Counter from './components/Counter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+
+		// déclaration du state initial avec le prénom Jack (1)
+    this.state = {
+      count: 0
+    }
+  }
+
+  handleClickDown = () => {
+
+    console.log("works nh")
+    this.setState({
+      count : this.state.count - 1
+    })
+  }
+
+  handleClickUp = () => {
+
+    console.log("works ")
+    this.setState({
+      count : this.state.count + 1
+    })
+  }
+
+  render() {
+
+    if (this.state.count <= 0){
+      this.state.count = 0
+    }
+    return (
+      <div className="container-fluid">
+        <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
