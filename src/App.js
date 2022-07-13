@@ -5,26 +5,26 @@ class App extends React.Component {
   constructor() {
     super()
 
-		// déclaration du state initial avec le prénom Jack (1)
     this.state = {
-      count: 0
+      count: 95
     }
   }
 
   handleClickDown = () => {
-
-    console.log("works nh")
-    this.setState({
-      count : this.state.count - 1
-    })
+    if(this.state.count > 0){
+      this.setState({
+        count : this.state.count - 1
+      })
+    }
   }
 
   handleClickUp = () => {
-
-    console.log("works ")
-    this.setState({
-      count : this.state.count + 1
-    })
+    if(this.state.count <100){
+      console.log("works ")
+      this.setState({
+        count : this.state.count + 1
+      })
+    }
   }
 
   resetValue = () => {
@@ -34,13 +34,6 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.count <= 0){
-      this.state.count = 0
-    }
-    if (this.state.count >= 100){
-      this.state.count = 100
-    }
-
     return (
       <div className="container-fluid">
         <Counter increment={this.handleClickUp} substract={this.handleClickDown} count={this.state.count} counterNum='1' reset={this.resetValue} />
